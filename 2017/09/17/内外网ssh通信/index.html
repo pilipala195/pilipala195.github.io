@@ -79,7 +79,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="ssh," />
 
 
 
@@ -95,16 +95,18 @@
 
 
 
-<meta name="description" content="怎能忘了西游。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="pilipala195">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="内外网ssh通信 背景妹子要在实验室的服务器上跑程序，由于是内网环境必须在同一网络环境下进行，有时忙到夜里很晚才回来，十分不安全也没必要。因此有了从外网访问内网服务器的需求，这样妹子就可以早早回家跑程序了  环境 一台装有Ubuntu的服务器，ip：1.1.1.1 google cloud，ip：2.2.2.2（独立静态ip） 任意可以进行ssh通信的工具   搭建实际的原理是通过ssh端口转发实">
+<meta name="keywords" content="ssh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内外网ssh通信">
+<meta property="og:url" content="http://yoursite.com/2017/09/17/内外网ssh通信/index.html">
 <meta property="og:site_name" content="pilipala195">
-<meta property="og:description" content="怎能忘了西游。">
+<meta property="og:description" content="内外网ssh通信 背景妹子要在实验室的服务器上跑程序，由于是内网环境必须在同一网络环境下进行，有时忙到夜里很晚才回来，十分不安全也没必要。因此有了从外网访问内网服务器的需求，这样妹子就可以早早回家跑程序了  环境 一台装有Ubuntu的服务器，ip：1.1.1.1 google cloud，ip：2.2.2.2（独立静态ip） 任意可以进行ssh通信的工具   搭建实际的原理是通过ssh端口转发实">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-17T14:49:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pilipala195">
-<meta name="twitter:description" content="怎能忘了西游。">
+<meta name="twitter:title" content="内外网ssh通信">
+<meta name="twitter:description" content="内外网ssh通信 背景妹子要在实验室的服务器上跑程序，由于是内网环境必须在同一网络环境下进行，有时忙到夜里很晚才回来，十分不安全也没必要。因此有了从外网访问内网服务器的需求，这样妹子就可以早早回家跑程序了  环境 一台装有Ubuntu的服务器，ip：1.1.1.1 google cloud，ip：2.2.2.2（独立静态ip） 任意可以进行ssh通信的工具   搭建实际的原理是通过ssh端口转发实">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/17/内外网ssh通信/"/>
 
 
 
 
 
-  <title>归档 | pilipala195</title>
+  <title>内外网ssh通信 | pilipala195</title>
   
 
 
@@ -159,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,74 +265,184 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 1 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/内外网ssh通信/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pilipala195">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://owf902c2z.bkt.clouddn.com/image/jpg/ironman.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pilipala195">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/09/17/内外网ssh通信/" itemprop="url">
-              
-                <span itemprop="name">内外网ssh通信</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">内外网ssh通信</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-17T22:46:37+08:00"
-              content="2017-09-17" >
-          09-17
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T22:46:37+08:00">
+                2017-09-17
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/使劲折腾/" itemprop="url" rel="index">
+                    <span itemprop="name">使劲折腾</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="内外网ssh通信"><a href="#内外网ssh通信" class="headerlink" title="内外网ssh通信"></a>内外网ssh通信</h2><ul>
+<li><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>妹子要在实验室的服务器上跑程序，由于是内网环境必须在同一网络环境下进行，有时忙到夜里很晚才回来，十分不安全也没必要。因此有了从外网访问内网服务器的需求，这样妹子就可以早早回家跑程序了</p>
+</li>
+<li><h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><ul>
+<li>一台装有Ubuntu的服务器，ip：1.1.1.1</li>
+<li>google cloud，ip：2.2.2.2（独立静态ip）</li>
+<li>任意可以进行ssh通信的工具</li>
+</ul>
+</li>
+<li><h4 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h4><p>实际的原理是通过ssh端口转发实现的。</p>
+<ul>
+<li><p>首先内网连接外网</p>
+<p><code>ssh -CfnNT -R  2222:localhost:22 user@2.2.2.2</code></p>
+<p>参数解释：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-C 压缩数据传输</div><div class="line">-f 将 ssh 转到后台运行，即认证之后，ssh 自动以后台运行。不在输出信息</div><div class="line">-n 将 stdio 重定向到 /dev/null，与 -f 配合使用</div><div class="line">-N 不执行脚本或命令，即通知 sshd 不运行设定的 shell 通常与 -f 连用</div><div class="line">-T 不分配 TTY 只做代理用</div><div class="line">-q 安静模式，不输出 错误/警告 信息</div></pre></td></tr></table></figure>
+</li>
+<li><p>本地连接外网vps</p>
+<p><code>ssh user@2.2.2.2</code></p>
+<p>登陆之后，由于之前vps上的2222端口已经在监听内网22端口发来的信息，因此输入</p>
+<p><code>ssh -p 2222 user@localhost</code></p>
+<p>其中<code>-p</code>指定ssh通信端口，<code>user</code>指的是内网ssh到外网上的username(<del><strong>大坑</strong></del>)，之后若需要密码即为内网服务器的密码。</p>
+</li>
+<li><p>enjoy it~</p>
+</li>
+</ul>
+</li>
+<li><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li>ssh配置 <a href="http://blog.ipsfan.com/1492.html" target="_blank" rel="external">生成ssh及查看ssh key</a></li>
+<li>参考 <a href="http://lvii.github.io/system/2013/10/08/ssh-remote-port-forwarding/" target="_blank" rel="external">ssh远程端口转发</a>、<a href="https://github.com/ma6174/blog/issues/7" target="_blank" rel="external">ssh内网穿透连接树莓派</a></li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ssh/" rel="tag"># ssh</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
-    </div>
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -338,6 +450,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -358,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -450,6 +575,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内外网ssh通信"><span class="nav-number">1.</span> <span class="nav-text">内外网ssh通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-number">1.0.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境"><span class="nav-number">1.0.2.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搭建"><span class="nav-number">1.0.3.</span> <span class="nav-text">搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">1.0.4.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
