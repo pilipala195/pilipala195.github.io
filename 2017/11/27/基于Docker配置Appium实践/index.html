@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Mon Nov 27 2017 20:20:20 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Nov 28 2017 10:24:29 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Nov 28 2017 11:30:47 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/27/基于Docker配置Appium实践/index.html",
     "headline": "基于Docker配置Appium实践",
     "datePublished": "Mon Nov 27 2017 20:20:20 GMT+0800",
-    "dateModified": "Tue Nov 28 2017 10:24:29 GMT+0800",
+    "dateModified": "Tue Nov 28 2017 11:30:47 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "pilipala195",
@@ -507,10 +507,8 @@
 <a id="more"></a>
 <h4 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h4><p>​安装 Ubuntu Server 略去不说，重点记录下Docker搭建Appium的过程。</p>
 <ul>
-<li><p>Docker 目前分为 CE(社区版)和 EE(商业版)，EE 相比 CE 最大的优势便是安全性全方位升级，当然也需要付费。于是我选择安装 CE，具体操作步骤跟着 <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/" target="_blank" rel="external">get Docker for Ubuntu</a> 走就好。</p>
-</li>
-<li><p>Docker安装完毕后，命令行输入<code>sudo docker -v</code>，出现版本信息。</p>
-</li>
+<li>Docker 目前分为 CE(社区版)和 EE(商业版)，EE 相比 CE 最大的优势便是安全性全方位升级，当然也需要付费。于是我选择安装 CE，具体操作步骤跟着 <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/" target="_blank" rel="external">get Docker for Ubuntu</a> 走就好。</li>
+<li>Docker安装完毕后，命令行输入<code>sudo docker -v</code>，出现版本信息。</li>
 <li><p>每次执行Docker均需要管理员权限颇为麻烦，可以执行以下命令，将当前用户加入Docker用户组，重启电脑后之后只需要输入<code>docker run</code>，无需管理员权限。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo groupadd docker</div><div class="line"># 将用户加入该group内。然后退出并重新登录即可生效。</div><div class="line">$ sudo gpasswd -a $&#123;USER&#125; docker</div><div class="line"># 重启Docker服务</div><div class="line">$ sudo service docker restart</div></pre></td></tr></table></figure>
 </li>
