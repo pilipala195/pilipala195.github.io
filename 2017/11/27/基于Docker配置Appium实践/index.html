@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Mon Nov 27 2017 20:20:20 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Nov 28 2017 11:30:47 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Nov 28 2017 11:32:04 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/27/基于Docker配置Appium实践/index.html",
     "headline": "基于Docker配置Appium实践",
     "datePublished": "Mon Nov 27 2017 20:20:20 GMT+0800",
-    "dateModified": "Tue Nov 28 2017 11:30:47 GMT+0800",
+    "dateModified": "Tue Nov 28 2017 11:32:04 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "pilipala195",
@@ -516,16 +516,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 登录Docker个人账号</div><div class="line">$ docker login</div><div class="line"># 拉取Appium镜像</div><div class="line">$ docker pull appium/appium</div><div class="line"># 运行Appium</div><div class="line">$ docker run --privileged -d -p 4723:4723  -v /dev/bus/usb:/dev/bus/usb --name container-appium appium/appium</div><div class="line"># 验证Appium</div><div class="line">$ docker exec -it container-appium adb devices</div></pre></td></tr></table></figure>
 </li>
 <li><p>上一步中<code>adb devices</code>正常显示设备信息后，Appium已搭载完毕，接下来运行Appium脚本即可。</p>
-</li>
-</ul>
-<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ul>
-<li><p>基于目前国内堪忧的网络环境，最好去 <a href="https://www.daocloud.io/" target="_blank" rel="external">DaoCloud</a> 申请一个Docker加速，不然pull image的过程是十分痛苦的。</p>
-</li>
-<li><p>官方提供的镜像仅支持了Appium的基本运行，后期可以考虑基于此镜像进行优化，比如将执行脚本打包在镜像中、配置python环境…</p>
-</li>
-<li><p>运行的Appium脚本中有在命令行adb的操作，现在adb service在Docker中，需在命令前添加<code>docker exec -it container-appium</code>，如</p>
-<p><code>docker exec -it container-appium adb -s ZX1G42CT5K shell input keyevent 26</code></p>
-</li>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4></li>
+<li>基于目前国内堪忧的网络环境，最好去 <a href="https://www.daocloud.io/" target="_blank" rel="external">DaoCloud</a> 申请一个Docker加速，不然pull image的过程是十分痛苦的。</li>
+<li>官方提供的镜像仅支持了Appium的基本运行，后期可以考虑基于此镜像进行优化，比如将执行脚本打包在镜像中、配置python环境…</li>
+<li>运行的Appium脚本中有在命令行adb的操作，现在adb service在Docker中，需在命令前添加<code>docker exec -it container-appium</code>，如<br><code>docker exec -it container-appium adb -s ZX1G42CT5K shell input keyevent 26</code></li>
 </ul>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
 <li>遥想当初刚接触Appium时，花费将近一周的时间配置环境，如今通过Docker，仅需十余行命令便可部署完毕，不得不说Docker的效率和普适性确实一流。</li>
