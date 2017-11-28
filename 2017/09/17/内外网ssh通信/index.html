@@ -103,6 +103,10 @@
     
 
     
+        
+            <link rel="stylesheet" href="/css/fontawesome.min.css">
+        
+    
 
     <!-- Config CSS -->
 
@@ -307,8 +311,113 @@
 
 
     
-        <body id="scheme-Nexus" class="lazy">
+        <body id="scheme-Isolation" class="lazy">
             <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;pilipala195
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="pilipala195">
+                pilipala195
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                我们必将更加深邃，否则更加复杂。
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/pilipala195" target="_blank">
+            <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/pilipala195" target="_blank">
+            <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+        <a href="https://www.instagram.com/pilipala195" target="_blank">
+            <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://www.github.com/pilipala195" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+    </div>
+</header>
+
                 
 
                 <!-- Main Container -->
@@ -337,6 +446,21 @@
                 
 
 
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="pilipala195's avatar">
+            <span class="name-span">pilipala195</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
 
 
                 
@@ -346,9 +470,51 @@
     
 
     
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                内外网ssh通信
+            </p>
+            <h2 id="内外网ssh通信"><a href="#内外网ssh通信" class="headerlink" title="内外网ssh通信"></a>内外网ssh通信</h2><ul>
+<li><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>妹子要在实验室的服务器上跑程序，由于是内网环境必须在同一网络环境下进行，有时忙到夜里很晚才回来，十分不安全也没必要。因此有了从外网访问内网服务器的需求，这样妹子就可以早早回家跑程序了</p>
+<a id="more"></a>
+</li>
+<li><h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><ul>
+<li>一台装有Ubuntu的服务器，ip：1.1.1.1</li>
+<li>google cloud，ip：2.2.2.2（独立静态ip）</li>
+<li>任意可以进行ssh通信的工具</li>
+</ul>
+</li>
+<li><h4 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h4><p>实际的原理是通过ssh端口转发实现的。</p>
+<ul>
+<li><p>首先内网连接外网<br><code>ssh -CfnNT -R  2222:localhost:22 user@2.2.2.2</code></p>
+<p>参数解释：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-C 压缩数据传输</div><div class="line">-f 将 ssh 转到后台运行，即认证之后，ssh 自动以后台运行。不在输出信息</div><div class="line">-n 将 stdio 重定向到 /dev/null，与 -f 配合使用</div><div class="line">-N 不执行脚本或命令，即通知 sshd 不运行设定的 shell 通常与 -f 连用</div><div class="line">-T 不分配 TTY 只做代理用</div><div class="line">-q 安静模式，不输出 错误/警告 信息</div></pre></td></tr></table></figure>
+</li>
+<li><p>本地连接外网vps<br><code>ssh user@2.2.2.2</code></p>
+<p>登陆之后，由于之前vps上的2222端口已经在监听内网22端口发来的信息，因此输入</p>
+<p><code>ssh -p 2222 user@localhost</code></p>
+<p>其中<code>-p</code>指定ssh通信端口，<code>user</code>指的是内网ssh到外网上的username(<del><strong>大坑</strong></del>)，之后若需要密码即为内网服务器的密码。</p>
+</li>
+<li><p>enjoy it~</p>
+</li>
+</ul>
+</li>
+<li><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li>ssh配置 <a href="http://blog.ipsfan.com/1492.html" target="_blank" rel="external">生成ssh及查看ssh key</a></li>
+<li>参考 <a href="http://lvii.github.io/system/2013/10/08/ssh-remote-port-forwarding/" target="_blank" rel="external">ssh远程端口转发</a>、<a href="https://github.com/ma6174/blog/issues/7" target="_blank" rel="external">ssh内网穿透连接树莓派</a></li>
+</ul>
+</li>
+</ul>
+
+            
+        </div>
+    
 </div>
 
 
+                
+                    <!-- Paradox Post Info -->
+                    
                 
 
                 <!-- Post Comments -->

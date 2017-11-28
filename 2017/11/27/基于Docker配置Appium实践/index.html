@@ -102,6 +102,10 @@
     
 
     
+        
+            <link rel="stylesheet" href="/css/fontawesome.min.css">
+        
+    
 
     <!-- Config CSS -->
 
@@ -303,8 +307,113 @@
 
 
     
-        <body id="scheme-Nexus" class="lazy">
+        <body id="scheme-Isolation" class="lazy">
             <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;pilipala195
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="pilipala195">
+                pilipala195
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                我们必将更加深邃，否则更加复杂。
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/pilipala195" target="_blank">
+            <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/pilipala195" target="_blank">
+            <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+        <a href="https://www.instagram.com/pilipala195" target="_blank">
+            <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://www.github.com/pilipala195" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+    </div>
+</header>
+
                 
 
                 <!-- Main Container -->
@@ -333,6 +442,21 @@
                 
 
 
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="pilipala195's avatar">
+            <span class="name-span">pilipala195</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
 
 
                 
@@ -342,9 +466,46 @@
     
 
     
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                基于Docker配置Appium实践
+            </p>
+            <h2 id="基于Docker配置Appium实践"><a href="#基于Docker配置Appium实践" class="headerlink" title="基于Docker配置Appium实践"></a>基于Docker配置Appium实践</h2><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>​公司常年闲置一台主机，之前装了 Ubuntu 16.04 Desktop，上面的环境基本配置完毕，但在运行Appium时偶尔会出现无法找到SDK的情况。前段时间在搭建STF时已经领略到Docker部署的方便，加上访问这台主机的主要方法是在Mac上ssh，桌面版实在对我没什么用，索性卸载重装 Ubuntu 16.04 Server + Docker，并且尽量将所需服务用Docker搭建。（<del>Docker对于软件洁癖实在太友好了</del>）</p>
+<a id="more"></a>
+<h4 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h4><p>​安装 Ubuntu Server 略去不说，重点记录下Docker搭建Appium的过程。</p>
+<ul>
+<li>Docker 目前分为 CE(社区版)和 EE(商业版)，EE 相比 CE 最大的优势便是安全性全方位升级，当然也需要付费。于是我选择安装 CE，具体操作步骤跟着 <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/" target="_blank" rel="external">get Docker for Ubuntu</a> 走就好。</li>
+<li>Docker安装完毕后，命令行输入<code>sudo docker -v</code>，出现版本信息。</li>
+<li>每次执行Docker均需要管理员权限颇为麻烦，可以执行以下命令，将当前用户加入Docker用户组，重启电脑后之后只需要输入<code>docker run</code>，无需管理员权限。</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo groupadd docker</div><div class="line"># 将用户加入该group内。然后退出并重新登录即可生效。</div><div class="line">$ sudo gpasswd -a $&#123;USER&#125; docker</div><div class="line"># 重启Docker服务</div><div class="line">$ sudo service docker restart</div></pre></td></tr></table></figure>
+<ul>
+<li>Appium官方已提供打包好的镜像，看了Dockerfile里面除了Appium版本较低，其他均满足需求。</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 登录Docker个人账号</div><div class="line">$ docker login</div><div class="line"># 拉取Appium镜像</div><div class="line">$ docker pull appium/appium</div><div class="line"># 运行Appium</div><div class="line">$ docker run --privileged -d -p 4723:4723  -v /dev/bus/usb:/dev/bus/usb --name container-appium appium/appium</div><div class="line"># 验证Appium</div><div class="line">$ docker exec -it container-appium adb devices</div></pre></td></tr></table></figure>
+<ul>
+<li>上一步中<code>adb devices</code>正常显示设备信息后，Appium已搭载完毕，接下来运行Appium脚本即可。</li>
+</ul>
+<h4 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h4><ul>
+<li>基于目前国内堪忧的网络环境，最好去 <a href="https://www.daocloud.io/" target="_blank" rel="external">DaoCloud</a> 申请一个Docker加速，不然pull image的过程是十分痛苦的。</li>
+<li>官方提供的镜像仅支持了Appium的基本运行，后期可以考虑基于此镜像进行优化，比如将执行脚本打包在镜像中、配置python环境…</li>
+<li>运行的Appium脚本中有在命令行adb的操作，现在adb service在Docker中，需在命令前添加<code>docker exec -it container-appium</code>，如<br><code>docker exec -it container-appium adb -s ZX1G42CT5K shell input keyevent 26</code></li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>遥想当初刚接触Appium时，花费将近一周的时间配置环境，如今通过Docker，仅需十余行命令便可部署完毕，不得不说Docker的效率和普适性确实一流。</li>
+<li>这次实践仅仅是对Docker化Appium最基础的搭建，后面优化镜像、多镜像多机测试等工作还有很长路要走。</li>
+<li>感谢Docker，软件洁癖者最大的福音。</li>
+</ul>
+
+            
+        </div>
+    
 </div>
 
 
+                
+                    <!-- Paradox Post Info -->
+                    
                 
 
                 <!-- Post Comments -->
