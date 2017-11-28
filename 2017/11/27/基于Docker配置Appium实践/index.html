@@ -48,7 +48,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="pilipala195">
-    <meta name="description" itemprop="description" content="怎能忘了西游。">
+    <meta name="description" itemprop="description" content="基于Docker配置Appium实践背景​    公司常年闲置一台主机，之前装了 Ubuntu 16.04 Desktop，上面的环境基本配置完毕，但在运行Appium时偶尔会出现无法找到SDK的情况。之前在搭建STF时已经领略到Docker部署的方便，加上访问这台主机的主要方法是在Mac上ssh，桌面版实在对我没什么用，索性卸载重装 Ubuntu 16.04 Server + Docker，并且尽量将所需服务用Docker搭建。（Docker对于软件洁癖实在太友好了）">
     <meta name="keywords" content=",Docker,Appium">
 
     <!-- Import lsloader -->
@@ -233,17 +233,17 @@
     <meta property="og:type" content="blog">
     <meta property="og:title" content="基于Docker配置Appium实践 | pilipala195">
     <meta property="og:image" content="http://yoursite.com/img/favicon.png" />
-    <meta property="og:description" content="怎能忘了西游。">
+    <meta property="og:description" content="基于Docker配置Appium实践背景​    公司常年闲置一台主机，之前装了 Ubuntu 16.04 Desktop，上面的环境基本配置完毕，但在运行Appium时偶尔会出现无法找到SDK的情况。之前在搭建STF时已经领略到Docker部署的方便，加上访问这台主机的主要方法是在Mac上ssh，桌面版实在对我没什么用，索性卸载重装 Ubuntu 16.04 Server + Docker，并且尽量将所需服务用Docker搭建。（Docker对于软件洁癖实在太友好了）">
     <meta property="og:article:tag" content="Docker"> <meta property="og:article:tag" content="Appium"> 
 
     
         <meta property="article:published_time" content="Mon Nov 27 2017 20:20:20 GMT+0800" />
-        <meta property="article:modified_time" content="Tue Nov 28 2017 10:02:02 GMT+0800" />
+        <meta property="article:modified_time" content="Tue Nov 28 2017 10:04:45 GMT+0800" />
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="基于Docker配置Appium实践 | pilipala195">
-    <meta name="twitter:description" content="怎能忘了西游。">
+    <meta name="twitter:description" content="基于Docker配置Appium实践背景​    公司常年闲置一台主机，之前装了 Ubuntu 16.04 Desktop，上面的环境基本配置完毕，但在运行Appium时偶尔会出现无法找到SDK的情况。之前在搭建STF时已经领略到Docker部署的方便，加上访问这台主机的主要方法是在Mac上ssh，桌面版实在对我没什么用，索性卸载重装 Ubuntu 16.04 Server + Docker，并且尽量将所需服务用Docker搭建。（Docker对于软件洁癖实在太友好了）">
     <meta name="twitter:image" content="http://yoursite.com/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="http://yoursite.com" />
@@ -265,7 +265,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/27/基于Docker配置Appium实践/index.html",
     "headline": "基于Docker配置Appium实践",
     "datePublished": "Mon Nov 27 2017 20:20:20 GMT+0800",
-    "dateModified": "Tue Nov 28 2017 10:02:02 GMT+0800",
+    "dateModified": "Tue Nov 28 2017 10:04:45 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "pilipala195",
@@ -284,7 +284,7 @@
         }
     },
     "keywords": ",Docker,Appium",
-    "description": "怎能忘了西游。",
+    "description": "基于Docker配置Appium实践背景​    公司常年闲置一台主机，之前装了 Ubuntu 16.04 Desktop，上面的环境基本配置完毕，但在运行Appium时偶尔会出现无法找到SDK的情况。之前在搭建STF时已经领略到Docker部署的方便，加上访问这台主机的主要方法是在Mac上ssh，桌面版实在对我没什么用，索性卸载重装 Ubuntu 16.04 Server + Docker，并且尽量将所需服务用Docker搭建。（Docker对于软件洁癖实在太友好了）",
 }
 </script>
 
@@ -504,6 +504,7 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h2 id="基于Docker配置Appium实践"><a href="#基于Docker配置Appium实践" class="headerlink" title="基于Docker配置Appium实践"></a>基于Docker配置Appium实践</h2><h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>​    公司常年闲置一台主机，之前装了 Ubuntu 16.04 Desktop，上面的环境基本配置完毕，但在运行Appium时偶尔会出现无法找到SDK的情况。之前在搭建STF时已经领略到Docker部署的方便，加上访问这台主机的主要方法是在Mac上ssh，桌面版实在对我没什么用，索性卸载重装 Ubuntu 16.04 Server + Docker，并且尽量将所需服务用Docker搭建。（<del>Docker对于软件洁癖实在太友好了</del>）</p>
+<a id="more"></a>
 <h4 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h4><p>​    安装 Ubuntu Server 略去不说，重点记录下Docker搭建Appium的过程。</p>
 <ul>
 <li><p>Docker 目前分为 CE(社区版)和 EE(商业版)，EE 相比 CE 最大的优势便是安全性全方位升级，当然也需要付费。于是我选择安装 CE，具体操作步骤跟着 <a href="https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/" target="_blank" rel="external">get Docker for Ubuntu</a> 走就好。</p>
@@ -511,10 +512,10 @@
 <li><p>Docker安装完毕后，命令行输入<code>sudo docker -v</code>，出现版本信息。</p>
 </li>
 <li><p>每次执行Docker均需要管理员权限颇为麻烦，可以执行以下命令，将当前用户加入Docker用户组，重启电脑后之后只需要输入<code>docker run</code>，无需管理员权限。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> sudo groupadd docker</div><div class="line"><span class="meta">#</span> 将用户加入该group内。然后退出并重新登录即可生效。</div><div class="line"><span class="meta">$</span> sudo gpasswd -a $&#123;USER&#125; docker</div><div class="line"><span class="meta">#</span> 重启Docker服务</div><div class="line"><span class="meta">$</span> sudo service docker restart</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ sudo groupadd docker</div><div class="line"># 将用户加入该group内。然后退出并重新登录即可生效。</div><div class="line">$ sudo gpasswd -a $&#123;USER&#125; docker</div><div class="line"># 重启Docker服务</div><div class="line">$ sudo service docker restart</div></pre></td></tr></table></figure>
 </li>
 <li><p>Appium官方已提供打包好的镜像，看了Dockerfile里面除了Appium版本较低，其他均满足需求。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> 登录Docker个人账号</div><div class="line"><span class="meta">$</span> docker login</div><div class="line"><span class="meta">#</span> 拉取Appium镜像</div><div class="line"><span class="meta">$</span> docker pull appium/appium</div><div class="line"><span class="meta">#</span> 运行Appium</div><div class="line"><span class="meta">$</span> docker run --privileged -d -p 4723:4723  -v /dev/bus/usb:/dev/bus/usb --name container-appium appium/appium</div><div class="line"><span class="meta">#</span> 验证Appium</div><div class="line"><span class="meta">$</span> docker exec -it container-appium adb devices</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 登录Docker个人账号</div><div class="line">$ docker login</div><div class="line"># 拉取Appium镜像</div><div class="line">$ docker pull appium/appium</div><div class="line"># 运行Appium</div><div class="line">$ docker run --privileged -d -p 4723:4723  -v /dev/bus/usb:/dev/bus/usb --name container-appium appium/appium</div><div class="line"># 验证Appium</div><div class="line">$ docker exec -it container-appium adb devices</div></pre></td></tr></table></figure>
 </li>
 <li><p>上一步中<code>adb devices</code>正常显示设备信息后，Appium已搭载完毕，接下来运行Appium脚本即可。</p>
 </li>
